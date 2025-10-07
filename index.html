@@ -16,6 +16,15 @@
     <div class="container">
         <h1>Sales Summary</h1>
         <p>Total Sales: <span id="total-sales">Calculating...</span></p>
+        <table id="product-sales" class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Sales</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
     <script>
         fetch('data.csv')
@@ -23,13 +32,20 @@
         .then(data => {
             const lines = data.trim().split('\n').filter(line => line.trim());
             let total = 0;
-            for (let i = 1; i < lines.length; i++) {
-                const cols = lines[i].split(',').map(c => c.trim());
-                if (cols.length > 1) {
-                    const val = parseFloat(cols[1]);
-                    if (!isNaN(val)) total += val;
+            lines.forEach((line, index) => {
+                if (index === 0) return;
+                const cols = line.split(',').map(c => c.trim());
+                if (cols.length >= 2) {
+                    const product = cols[0];
+                    const sales = parseFloat(cols[1]);
+                    if (!isNaN(sales)) {
+                        total += sales;
+                        const tr = document.createElement('tr');
+                        tr.innerHTML = `<td>${product}</td><td>${sales.toFixed(2)}</td>`;
+                        document.querySelector('#product-sales tbody').appendChild(tr);
+                    }
                 }
-            }
+            });
             document.getElementById('total-sales').textContent = total.toFixed(2);
         });
     </script>
