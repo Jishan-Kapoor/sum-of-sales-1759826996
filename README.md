@@ -1,7 +1,7 @@
 # Sales Summary Test
 
 ## Summary
-This static web application fetches a CSV file, calculates the total sales from the data, and displays the result on a single-page site titled 'Sales Summary Test'. It utilizes Bootstrap 5 for styling and is designed to provide a simple sales summary report.
+This static web application fetches a CSV file, calculates the total sales from the data, and displays the result on a single-page site titled 'Sales Summary Test'. It utilizes Bootstrap 5 for styling and is designed to provide a simple sales summary report. New features include the addition of a Bootstrap table (#product-sales) listing each product with its sales.
 
 ## Setup
 To deploy this application on GitHub Pages, follow these steps:
@@ -17,6 +17,7 @@ To deploy this application on GitHub Pages, follow these steps:
   - Fetches data from `data.csv`.
   - Sums the sales column from the CSV data.
   - Displays the total sales in the element with ID `#total-sales`.
+  - Includes a Bootstrap table (#product-sales) listing each product with its sales.
 
 ## Code Explanation
 This web application is built using HTML, JavaScript, and Bootstrap 5 from jsdelivr for styling. The key parts of the implementation include:
@@ -24,6 +25,7 @@ This web application is built using HTML, JavaScript, and Bootstrap 5 from jsdel
 - Calculating the total sales by summing up the values from the sales column.
 - Setting the title of the page to 'Sales Summary Test'.
 - Displaying the total sales in the designated HTML element.
+- Adding a Bootstrap table (#product-sales) to list each product with its sales.
 
 **Libraries Used:**
 - Bootstrap 5 from jsdelivr (for CSS styling)
